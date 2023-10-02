@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Iconscout Link for Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <!--========== CSS ==========-->
+    <link id="myStylesheet" rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('lctddYn84fPrZF-U-')
+    </script>
+    <title>Emily decorations</title>
+</head>
+
+<body>
+    <!--========== SCROLL TOP ==========-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+    </a>
+    <ul class="notifications"></ul>
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="#" class="nav__logo">Emily Decorations</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Inicio</a></li>
+                    <li class="nav__item"><a href="#decoration" class="nav__link">Decoraciones</a></li>
+                    <li class="nav__item"><a href="#budget" class="nav__link">Presupuesto</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contacto</a></li>
+
+                    <li><i class='bx bx-toggle-left change-theme' id="theme-button"></i></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-grid-alt'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--========== HOME ==========-->
+        <section class="home" id="home">
+            <div class="home__container bd-container bd-grid">
+                <div class="home__img">
+                    <img src="assets/img/dec1.jpg" alt="">
+                </div>
+
+                <div class="home__data">
+                    <h1 class="home__title">Decoraciones Incre&iacute;bles</h1>
+                    <p class="home__description">Haz de tu evento un recuerdo hermoso e inolvidable para todos.</p>
+                    <a href="#decoration" class="button">Comenzar</a>
+                </div>
+            </div>
+        </section>
+
+        <!--========== DECORATION ==========-->
+        <section class="decoration section bd-container" id="decoration">
+            <div class="lightbox">
+                <div class="gallery-box">
+                    <div class="full-img">
+                        <img src="" alt="dec">
+                        <span>X</span>
+                    </div>
+                    <header>
+                        <div class="buttons">
+                            <i class="uil uil-times"></i>
+                        </div>
+                    </header>
+                    <h2 class="topic__title">Tematica</h2>
+                    <div class="img-gallery">
+                        <img src="assets/img/60s.jpeg" alt="dec1-gallery">
+                        <img src="assets/img/60s2.jpeg" alt="dec1-gallery">
+                        <img src="assets/img/60s3.jpeg" alt="dec1-gallery">
+                        <img src="assets/img/fornite.jpeg" alt="dec2-gallery">
+                        <img src="assets/img/fornite2.jpeg" alt="dec2-gallery">
+                        <img src="assets/img/mario.jpeg" alt="dec3-gallery">
+                        <img src="assets/img/mario2.jpeg" alt="dec3-gallery">
+                    </div>
+                </div>
+            </div>
+            <h2 class="section-title">Decoraciones Recientes <br></h2>
+            <div class="decoration__container bd-grid">
+                <div class="decoration__data">
+                    <img src="assets/img/60s3.jpeg" alt="Temática de los 60s" class="decoration__img">
+                    <h3 class="decoration__title">Fiesta de cumplea&ntilde;os</h3>
+                    <a href="#1" class="button button-link 0" id="dec1-gallery">Ver decoraci&oacute;n</a>
+                </div>
+
+                <div class="decoration__data">
+                    <img src="assets/img/fornite.jpeg" alt="Temática Fornite" class="decoration__img">
+                    <h3 class="decoration__title">Fiesta de cumplea&ntilde;os</h3>
+                    <a href="#2" class="button button-link 1" id="dec2-gallery">Ver decoraci&oacute;n</a>
+                </div>
+
+                <div class="decoration__data">
+                    <img src="assets/img/mario.jpeg" alt="Temática Súper Mario Bros" class="decoration__img">
+                    <h3 class="decoration__title">Fiesta de cumplea&ntilde;os</h3>
+                    <a href="#3" class="button button-link 2" id="dec3-gallery">Ver decoraci&oacute;n</a>
+                </div>
+            </div>
+        </section>
+
+        <!--========== BUDGET ==========-->
+        <section class="budget section bd-container" id="budget">
+            <div class="budget__container bd-grid">
+                <div class="budget__data">
+                    <h2 class="section-title-center">Diseños a la medida.<br> Elige el tuyo.</h2>
+                    <p class="budget__description">Diseñamos y nos adaptamos a cada presupuesto del cliente,
+                        esforz&aacute;ndonos para alcanzar su estupenda idea.</p>
+                    <a href="#contact" class="button">Contactar</a>
+                </div>
+
+                <div class="budget__img">
+                    <img src="assets/img/dec2.jpg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!--========== Contact ==========-->
+        <section class="contact section" id="contact">
+            <div class="contact__container bd-container bd-grid">
+                <div class="contact__content">
+                    <h2 class="section-title-center contact__title">Env&iacute;a tus datos y convercemos</h2>
+                    <p class="contact__description">Escribe tu consulta con tu número de teléfono o escribe a nuestras
+                        redes sociales para poder hablar sobre el tema. Siempre será un placer conversar!</p>
+                    <form action="">
+                        <div class="contact__direction">
+                            <input type="text" placeholder="Su correo" class="contact__input">
+                        </div>
+                        <div class="contact_textarea">
+                            <textarea class="contact__text__area" placeholder="Su consulta..." cols="3"></textarea>
+                        </div>
+                        <div class="send_box">
+                            <a href="#" class="button" style="background-color:#fff; color:#161212;">Send</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact__img">
+                    <div class="social__content">
+                        <a href="https://www.facebook.com/emiily.artaviia" target="_blank"><i class='bx bxl-facebook-circle '></i></a>
+                        <a href="https://www.instagram.com/emilyartaviagomez/" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                    </div>
+                    <img src="assets/img/send1.png" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer section">
+        <div class="footer__container bd-container bd-grid">
+            <div class="footer__content">
+                <h3 class="footer__title">
+                    <a href="#" class="footer__logo">Emily Decorations</a>
+                </h3>
+                <p class="footer__description">Creando un espacio<br> maravilloso.</p>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Nuestros Servicios</h3>
+                <ul>
+                    <li><a href="#budget" class="footer__link">Presupuesto </a></li>
+                    <li><a href="#contact" id="discount" class="footer__link">Descuentos</a></li>
+                    <li><a href="#contact" id="accesory" class="footer__link">Alquiler de <br> accesorios</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Social</h3>
+                <a href="https://www.facebook.com/emiily.artaviia" target="_blank" class="footer__social"><i
+                        class='bx bxl-facebook-circle '></i></a>
+                <a href="https://www.instagram.com/emilyartaviagomez/" target="_blank" class="footer__social"><i
+                        class='bx bxl-instagram-alt'></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+    <!--========== SCROLL REVEAL ==========-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
