@@ -185,9 +185,9 @@ const openGallery = (e) => {
     cont = setEventFullImg(name, cont, e.target.classList[2]);
     if(window.innerWidth <= 400){
         if(cont>2){
-            galleryBox.style.top='85%';
+            galleryBox.style.top='80%';
         }else {
-            galleryBox.style.top='90%'
+            galleryBox.style.top='80%'
         }
     }
     hideSections();
