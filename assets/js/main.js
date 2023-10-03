@@ -1,5 +1,6 @@
 const btnGallery = document.querySelectorAll(".decoration__container .decoration__data a");
 const galleryImg = document.querySelectorAll(".decoration__container .decoration__data img");
+const decorationContainer  = document.querySelector(".decoration__container");
 const galleryBox = document.querySelector(".gallery-box");
 const lightbox = document.querySelector(".lightbox");
 const closeBtn = lightbox.querySelector(".uil-times");
@@ -182,14 +183,15 @@ const hideSections = () => {
 const openGallery = (e) => {
     var cont = 0;
     var name = e.target.id;
+    decorationContainer.style.right = "-200px";
     cont = setEventFullImg(name, cont, e.target.classList[2]);
-    if(window.innerWidth <= 400){
-        if(cont>2){
-            galleryBox.style.top='65%';
-        }else {
-            galleryBox.style.top='70%'
-        }
-    }
+    // if(window.innerWidth <= 400){
+    //     if(cont>2){
+    //         galleryBox.style.top='65%';
+    //     }else {
+    //         galleryBox.style.top='70%'
+    //     }
+    // }
     hideSections();
     timer = setTimeout(() =>{
         scrolltop.click()
@@ -197,6 +199,7 @@ const openGallery = (e) => {
 }
 
 const hideLightbox = () => {
+    decorationContainer.style.right = "auto";
     images.forEach(img => {
         img.style.display='block';
     })
