@@ -14,6 +14,7 @@
     <!--========== CSS ==========-->
     <link id="myStylesheet" rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script type="text/javascript">
         emailjs.init('lctddYn84fPrZF-U-')
@@ -30,7 +31,9 @@
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
         <nav class="nav bd-container">
-            <a href="#" class="nav__logo">Emily Decorations</a>
+            <a href="#" class="nav__logo">
+                <img src="./assets/img/logo.jpeg" alt="">
+            </a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
@@ -58,8 +61,8 @@
                 </div>
 
                 <div class="home__data">
-                    <h1 class="home__title">Decoraciones Incre&iacute;bles</h1>
-                    <p class="home__description">Haz de tu evento un recuerdo hermoso e inolvidable para todos.</p>
+                    <h1 class="home__title">Decoraci&oacute;n con Globos</h1>
+                    <p class="home__description">Haz de tu evento un memorable e inolvidable recuerdo para todos.</p>
                     <a href="#decoration" class="button">Comenzar</a>
                 </div>
             </div>
@@ -94,21 +97,68 @@
             <div class="decoration__container bd-grid">
                 <div class="decoration__data">
                     <img src="assets/img/60s3.jpeg" alt="Temática de los 60s" class="decoration__img">
-                    <h3 class="decoration__title">Fiesta de cumplea&ntilde;os</h3>
+                    <h3 class="decoration__title">Tem&aacute;tica de los 60s</h3>
                     <a href="#1" class="button button-link 0" id="dec1-gallery">Ver decoraci&oacute;n</a>
                 </div>
 
                 <div class="decoration__data">
                     <img src="assets/img/fornite2.jpeg" alt="Temática Fornite" class="decoration__img">
-                    <h3 class="decoration__title">Fiesta de cumplea&ntilde;os</h3>
+                    <h3 class="decoration__title">Tem&aacute;tica Fornite</h3>
                     <a href="#2" class="button button-link 1" id="dec2-gallery">Ver decoraci&oacute;n</a>
                 </div>
 
                 <div class="decoration__data">
                     <img src="assets/img/mario.jpeg" alt="Temática Súper Mario Bros" class="decoration__img">
-                    <h3 class="decoration__title">Fiesta de cumplea&ntilde;os</h3>
+                    <h3 class="decoration__title">Tem&aacute;tica S&uacute;per Mario Bros</h3>
                     <a href="#3" class="button button-link 2" id="dec3-gallery">Ver decoraci&oacute;n</a>
                 </div>
+            </div>
+            <div class="carousel_container">
+                <div class="wrapper">
+                    <i id="left" class="fa-solid fa-angle-left"></i>
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="assets/img/60s3.jpeg" alt="img" draggable="false">  
+                            </div>
+                            <h2>Tem&aacute;tica de los 60s</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="assets/img/fornite2.jpeg" alt="img" draggable="false">
+                            </div>
+                            <h2>Tem&aacute;tica Fornite</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="assets/img/mario.jpeg" alt="img" draggable="false">
+                            </div>
+                            <h2>Tem&aacute;tica S&uacute;per Mario Bros</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="assets/img/60s2.jpeg" alt="img" draggable="false">
+                            </div>
+                            <h2>Tem&aacute;tica de los 60s</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="assets/img/fornite2.jpeg" alt="img" draggable="false">
+                            </div>
+                            <h2>Tem&aacute;tica Fornite</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="assets/img/mario2.jpeg" alt="img" draggable="false">
+                            </div>
+                            <h2>Tem&aacute;tica S&uacute;per Mario Bros</h2>
+                        </li>
+                    </ul>
+                    <i id="right" class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="see_more_decoration">
+                <button class="button" id="see_more">Ver m&aacute;s</button>
             </div>
         </section>
 
@@ -116,9 +166,9 @@
         <section class="budget section bd-container" id="budget">
             <div class="budget__container bd-grid">
                 <div class="budget__data">
-                    <h2 class="section-title-center">Diseños a la medida.<br> Elige el tuyo.</h2>
-                    <p class="budget__description">Diseñamos y nos adaptamos a cada presupuesto del cliente,
-                        esforz&aacute;ndonos para alcanzar su estupenda idea.</p>
+                    <h2 class="section-title-center">Diseños a t&uacute; gusto.<br> Elige t&uacute; favorito.</h2>
+                    <p class="budget__description">Trabajamos con variedad de dise&ntilde;os, adapat&aacute;ndonos al presupuesto del cliente
+                        esforz&aacute;ndonos por cumplir con todas t&uacute;s especatativas.</p>
                     <a href="#contact" class="button">Contactar</a>
                 </div>
 
@@ -133,8 +183,7 @@
             <div class="contact__container bd-container bd-grid">
                 <div class="contact__content">
                     <h2 class="section-title-center contact__title">Env&iacute;a tus datos y convercemos</h2>
-                    <p class="contact__description">Escribe tu consulta con tu número de teléfono o escribe a nuestras
-                        redes sociales para poder hablar sobre el tema. Siempre será un placer conversar!</p>
+                    <p class="contact__description">Escribe tu consulta junto con tu número de teléfono donde te podamos contactar o bien escribe mediante nuestra redes sociales (@globemi). <br> Siempre será un placer conversar!</p>
                     <form action="">
                         <div class="contact__direction">
                             <input type="text" placeholder="Su correo" class="contact__input">

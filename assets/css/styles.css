@@ -94,11 +94,17 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3, ul, p {
+h1,
+h2,
+h3,
+ul,
+p {
     margin: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-weight: var(--font-semi-bold);
     color: var(--title-color);
 }
@@ -122,7 +128,8 @@ img {
     padding: 4rem 0 2rem;
 }
 
-.section-title, .section-title-center {
+.section-title,
+.section-title-center {
     font-size: var(--h2-font-size);
     color: var(--title-color);
     text-align: center;
@@ -194,6 +201,14 @@ img {
 
 .nav__logo:hover {
     color: var(--first-color);
+}
+
+.nav__logo img {
+    margin-right: 100%;
+    margin-top: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 
 .nav__link {
@@ -275,7 +290,7 @@ img {
     justify-self: center;
 }
 
-.home__img img{
+.home__img img {
     border-radius: .8rem;
 }
 
@@ -336,7 +351,7 @@ img {
     justify-self: center;
 }
 
-.budget__img img{
+.budget__img img {
     border-radius: .8rem;
 }
 
@@ -370,20 +385,20 @@ img {
     margin-bottom: var(--mb-1);
 }
 
-.lightbox{
+.lightbox {
     /* position: fixed; */
     z-index: 5;
     width: 100%;
     height: 100%;
     display: none;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.65);
 }
 
 .lightbox.show {
     display: block;
 }
 
-.lightbox .gallery-box{
+.lightbox .gallery-box {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -396,13 +411,13 @@ img {
     z-index: 5;
 }
 
-.gallery-box header{
+.gallery-box header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-header .buttons i{
+header .buttons i {
     position: fixed;
     top: 5%;
     width: 40px;
@@ -471,6 +486,15 @@ header .buttons i{
     cursor: pointer;
 }
 
+.see_more_decoration{
+    margin-top: 5%;
+    text-align: center;
+}
+
+.see_more_decoration button{
+    border: none;
+}
+
 /*========== CONTACT ==========*/
 .contact {
     background-color: var(--first-color-contact);
@@ -496,7 +520,7 @@ header .buttons i{
     height: 90%;
 }
 
-.contact_textarea{
+.contact_textarea {
     margin-top: 20px;
     display: block;
     justify-content: space-between;
@@ -546,13 +570,14 @@ header .buttons i{
 .contact__img img {
     border-radius: 150px;
 }
-.social__content{
+
+.social__content {
     display: none;
     justify-content: center;
     text-align: center;
 }
 
-.social__content a{
+.social__content a {
     font-size: 1.5rem;
     color: var(--container-color);
 }
@@ -616,10 +641,12 @@ header .buttons i{
     .contact__img {
         width: 50%;
     }
+
     .contact__img img {
         border-radius: 180px;
     }
-    .lightbox .gallery-box{
+
+    .lightbox .gallery-box {
         position: absolute;
         left: 50%;
         top: 67%;
@@ -628,7 +655,8 @@ header .buttons i{
         z-index: 2;
         background-color: var(--body-color);
     }
-    header .buttons i{
+
+    header .buttons i {
         position: fixed;
         top: 0;
         width: 30px;
@@ -642,9 +670,11 @@ header .buttons i{
         font-size: 1rem;
         display: inline-block;
     }
+
     .topic__title {
         margin-top: 20px;
     }
+
     .img-gallery {
         width: 80%;
         margin: 35px auto 50px;
@@ -652,11 +682,12 @@ header .buttons i{
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-gap: 30px;
     }
-    .social__content{
+
+    .social__content {
         display: block;
     }
 
-    .button{
+    .button {
         margin-top: 10px;
     }
 }
@@ -799,12 +830,15 @@ header .buttons i{
     0% {
         transform: translate(100%);
     }
+
     40% {
         transform: translate(-5%);
     }
+
     80% {
         transform: translate(0%);
     }
+
     100% {
         transform: translate(-10px);
     }
@@ -818,12 +852,15 @@ header .buttons i{
     0% {
         transform: translate(-10px);
     }
+
     40% {
         transform: translate(0%);
     }
+
     80% {
         transform: translate(-5%);
     }
+
     100% {
         transform: translate(calc(100% + 20px));
     }
@@ -878,4 +915,134 @@ header .buttons i{
 
 .toast i:last-child:hover {
     color: var(--dark);
+}
+
+/* CAROUSEL STYLES */
+
+.carousel_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 0 35px;
+    background: var(--body-color);
+    display: none;
+}
+
+.wrapper{
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+}
+
+.wrapper i{
+    height: 50px;
+    width: 50px;
+    background: var(--first-color);
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 1.25rem;
+    transform: translateY(-50%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.wrapper i:first-child{
+    left: -22px;
+}
+.wrapper i:last-child{
+    right: -22px;
+}
+
+.wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    gap: 16px;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+}
+
+.carousel::-webkit-scrollbar{
+    display: none;
+}
+
+.carousel :where(.card, .img){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel.no-transition{
+    scroll-behavior: auto;
+}
+
+.carousel.dragging{
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.carousel.dragging .card{
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel .card{
+    align-items: center;
+    scroll-snap-align: start;
+    height: 342px;
+    list-style: none;
+    background: var(--container-color);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.card .img{
+    /* background: var(--first-color); */
+    width: 240px;
+    height: 148px;
+    /* border-radius: 50%; */
+}
+
+.card .img img{
+    margin-top: 60%;
+    width: 300px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #fff;
+}
+
+.card h2{
+    align-items: flex-end;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 30px 0 5px;
+}
+
+.card span{
+    color: #6a6d78;
+    font-size: 1.31rem;
+}
+
+@media screen and (max-width: 900px){
+    .wrapper .carousel{
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+}
+
+@media screen and (max-width: 600px){
+    .wrapper .carousel{
+        grid-auto-columns: 100%;
+    }
 }

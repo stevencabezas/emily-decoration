@@ -1,6 +1,6 @@
 const btnGallery = document.querySelectorAll(".decoration__container .decoration__data a");
 const galleryImg = document.querySelectorAll(".decoration__container .decoration__data img");
-const decorationContainer  = document.querySelector(".decoration__container");
+const decorationContainer = document.querySelector(".decoration__container");
 const galleryBox = document.querySelector(".gallery-box");
 const lightbox = document.querySelector(".lightbox");
 const closeBtn = lightbox.querySelector(".uil-times");
@@ -29,6 +29,10 @@ const titles_decoration = document.querySelector(".decoration__title");
 const divDec1Gallery = document.querySelector(".div-dec1-gallery");
 const divDec2Gallery = document.querySelector(".div-dec2-gallery");
 var timer = undefined;
+
+const see_more = document.getElementById('see_more');
+// CAROUSEL VARS
+
 /*==================== SHOW MENU ====================*/
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
@@ -120,7 +124,7 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-icon', getCurrentIcon())
     sendBtn.style.backgroundColor = '#FFF';
     sendBtn.style.color = '#161212';
-    if(document.body.classList.contains('dark-theme')){
+    if (document.body.classList.contains('dark-theme')) {
         sendBtn.style.backgroundColor = '#e7435c'
         sendBtn.style.color = '#FFF';
     }
@@ -151,18 +155,18 @@ sr.reveal(`.share__data, .send__img`, {
 
 const setEventFullImg = (name, cont, id) => {
     images.forEach(img => {
-        if(img.alt !== name){
-            img.style.display='none'; 
-        }else{ 
+        if (img.alt !== name) {
+            img.style.display = 'none';
+        } else {
             cont++;
         }
         topic_title.innerHTML = galleryImg[id].alt;
-            img.addEventListener("click", (e) => {
-                fullImg.src = e.target.src;
-                fullImgBox.style.top = (img.offsetTop-142)+'px';
-                fullImgBox.style.display = "flex";
-                document.documentElement.scrollTop = img.offsetTop-100;
-                // document.body.style.overflow = "hidden";
+        img.addEventListener("click", (e) => {
+            fullImg.src = e.target.src;
+            fullImgBox.style.top = (img.offsetTop - 142) + 'px';
+            fullImgBox.style.display = "flex";
+            document.documentElement.scrollTop = img.offsetTop - 100;
+            // document.body.style.overflow = "hidden";
         })
     })
     return cont;
@@ -185,15 +189,8 @@ const openGallery = (e) => {
     var name = e.target.id;
     decorationContainer.style.right = "-200px";
     cont = setEventFullImg(name, cont, e.target.classList[2]);
-    // if(window.innerWidth <= 400){
-    //     if(cont>2){
-    //         galleryBox.style.top='65%';
-    //     }else {
-    //         galleryBox.style.top='70%'
-    //     }
-    // }
     hideSections();
-    timer = setTimeout(() =>{
+    timer = setTimeout(() => {
         scrolltop.click()
     }, 600)
 }
@@ -201,7 +198,7 @@ const openGallery = (e) => {
 const hideLightbox = () => {
     decorationContainer.style.right = "auto";
     images.forEach(img => {
-        img.style.display='block';
+        img.style.display = 'block';
     })
     lightbox.classList.remove("show");
     lheader.style.display = 'block';
@@ -212,7 +209,7 @@ const hideLightbox = () => {
     sectionTitle.style.display = 'block';
     titles_decoration.style.display = 'block';
     clearTimeout(timer);
-    decoration.scrollIntoView({behavior: 'smooth'});
+    decoration.scrollIntoView({ behavior: 'smooth' });
 }
 
 const closeFullImg = () => {
@@ -227,20 +224,20 @@ btnGallery.forEach(a => {
 function sendEmail(e) {
     e.preventDefault();
 
-    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))){
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))) {
         email.value = '';
         createToast('error');
         return;
-    } 
+    }
 
     var params = {
         from_name: email.value,
         email_id: email.value,
         message: bodyEmail.value
     }
-    emailjs.send("default_service", "template_upwl3a9", params).then( function (res){
-            createToast('success')
-        }
+    emailjs.send("default_service", "template_upwl3a9", params).then(function (res) {
+        createToast('success')
+    }
     );
 
     email.value = '';
@@ -262,7 +259,7 @@ const toastDetails = {
 
 const removeToast = (toast) => {
     toast.classList.add("hide");
-    if(toast.timeoutId) clearTimeout(toast.timeoutId);// Clearing the timeout for the toast
+    if (toast.timeoutId) clearTimeout(toast.timeoutId);// Clearing the timeout for the toast
     setTimeout(() => toast.remove(), 500);// Remove the toast after 500ms
 }
 
@@ -270,7 +267,7 @@ const createToast = (id) => {
     const { icon, text } = toastDetails[id];//Getting the icon and text for the toast based on the id passed
     const toast = document.createElement('li');
     toast.className = `toast ${id}`;// Setting the classes for the toast
-    toast.innerHTML =    `<div class="column">
+    toast.innerHTML = `<div class="column">
                                 <i class="${icon}"></i>
                                 <span>${text}</span>
                             </div>
@@ -288,8 +285,105 @@ const putTextAccesory = (text) => {
     bodyEmail.value = 'Me gustaría saber más sobre los descuentos que alquilan';
 }
 
+const carousel_container = document.querySelector('.carousel_container');
+const carouselActive = (e) => {
+    if (e.target.innerHTML === 'Ver más') {
+        carousel_container.style.display = 'flex';
+        e.target.innerHTML = 'Ver menos'
+
+        const wrapper = document.querySelector('.wrapper');
+        const carousel = document.querySelector('.carousel');
+        const arrowBtns = document.querySelectorAll('.wrapper i');
+        const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+        const carouselChildrens = [...carousel.children];
+        
+        let isDragging = false, startX, startScrollLeft, timeoutId;
+        
+        // Get the number of cards that can fit in the carousel at once
+        let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+
+        carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+            carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+        });
+
+        // Insert copies of the first few cards to beginning of carousel for infinite scrolling
+        carouselChildrens.slice(0, cardPerView).forEach(card => {
+            carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+        });
+
+        // Add event listeners for arrow buttons to scroll the carousel left and right
+        arrowBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+            })
+        })
+
+        const dragStart = (e) => {
+            isDragging = true;
+            carousel.classList.add("dragging");
+            // Records the initial cursor and scroll position of the carousel
+            startX = e.pageX;
+            startScrollLeft = carousel.scrollLeft;
+        }
+
+        const dragging = (e) => {
+            if (!isDragging) return; //if isDragging is false return from here
+            // Updates the scroll position of the carousel based on the cursor movement
+            carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+        }
+
+        const dragStop = () => {
+            isDragging = false;
+            carousel.classList.remove("dragging");
+        }
+
+        const autoPlay = () => {
+            // if(window.innerWidth < 800) return; // Return if window is smaller than 800
+            // Autoplay the carousel after every 2500 ms
+            timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
+        }
+
+        autoPlay();
+
+        const infiniteScroll = () => {
+            // If the carousel is at the beginning, scroll to the end
+            if (carousel.scrollLeft === 0) {
+                carousel.classList.add("no-transition");
+                carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+                carousel.classList.remove("no-transition");
+            } else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+                carousel.classList.add("no-transition");
+                // If the carousel is at the end, scroll to the beginning
+                carousel.scrollLeft = carousel.offsetWidth;
+                carousel.classList.remove("no-transition");
+            }
+
+            // Clear existing timeout & start autoplay if mouse is not hovering over carousel
+            clearTimeout(timeoutId);
+            if (!wrapper.matches(":hover")) autoPlay();
+        }
+
+
+        carousel.addEventListener("mousedown", dragStart);
+        carousel.addEventListener("mousemove", dragging);
+        document.addEventListener("mouseup", dragStop);
+        carousel.addEventListener("scroll", infiniteScroll);
+        wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+        wrapper.addEventListener("mouseleave", autoPlay);
+
+        return;
+    }
+    carousel_container.style.display = 'none';
+    e.target.innerHTML = 'Ver más'
+}
+
+
+
 sendBtn.addEventListener("click", sendEmail)
 spanClose.addEventListener('click', closeFullImg);
 closeBtn.addEventListener("click", hideLightbox);
 discountText.addEventListener("click", putTextDiscount);
 accesoryText.addEventListener("click", putTextAccesory);
+
+// CAROUSEL ACTIONS
+see_more.addEventListener('click', carouselActive);
